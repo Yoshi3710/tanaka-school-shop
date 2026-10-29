@@ -6,7 +6,6 @@
 @media(max-width:390px){.product{grid-template-columns:104px 1fr}.prod-title{font-size:13px}.prod-desc{font-size:10px}.product-img{min-height:215px}.cartline{grid-template-columns:1fr auto}.cartline img{display:none}.choicegrid{grid-template-columns:1fr}}
 @media print{*{box-shadow:none!important}html,body{width:100%;margin:0!important;background:#fff!important;color:#000!important;font-size:10pt!important}.topstrip,.header,.trialbar,main,.footer,.modal,.toast{display:none!important}#printSheet{display:block!important;position:static;max-width:none;margin:0;padding:0 8mm;font-family:"Yu Gothic",Meiryo,sans-serif;color:#000}#printSheet h1{font-size:19pt;margin:3mm 0}#printSheet h2{font-size:11pt;border-bottom:1px solid #333;margin:5mm 0 2mm}#printSheet p{margin:1mm 0}#printSheet table{border-collapse:collapse;width:100%;margin:3mm 0}#printSheet td,#printSheet th{border:1px solid #666;padding:2mm;text-align:left;font-size:9pt}#printSheet .pmeta{text-align:right;font-size:9pt}#printSheet .pprice{text-align:right;font-size:12pt;font-weight:bold;margin-top:3mm}#printSheet .pdisclaimer{border-top:1px solid #888;padding-top:3mm;font-size:8pt;color:#333}#printSheet .pkv{display:grid;grid-template-columns:1fr 1fr;column-gap:5mm;row-gap:1.2mm;font-size:8.5pt}#printSheet .pkv .kv{display:grid;grid-template-columns:24mm minmax(0,1fr);gap:2mm;padding:0.5mm 0;border-bottom:0.3px solid #ddd;min-width:0}#printSheet .pkv b{font-weight:400;color:#444}#printSheet .pkv span{overflow-wrap:anywhere}#printSheet .pkv .kv.wide{grid-column:1/-1}#printSheet .class-print{margin-top:2mm}#printSheet .class-print th,#printSheet .class-print td{padding:1mm 2mm;font-size:8.5pt}#printSheet .pdisclaimer{line-height:1.5}#printSheet tr{break-inside:avoid}}
 
-/* スマホの確認画面は学校情報を1列に統一（旧CSSの2列指定を上書き） */
 @media(max-width:680px){
  .modal-body{padding:15px 14px}
  .modal-top{padding:15px 14px}
@@ -15,7 +14,7 @@
  .review-item dd{overflow-wrap:anywhere;word-break:normal}
  .review-section{margin:13px 0}
 }
-/* 学年・組を商品明細の行と一体化。スマホでは横スクロールせず明細カード化 */
+
 .cart-alloc-list{margin:7px 0 3px;display:flex;flex-wrap:wrap;gap:5px}
 .cart-alloc-pill{display:inline-flex;align-items:center;gap:5px;background:#eef6f2;border:1px solid #dbeae5;border-radius:6px;padding:3px 7px;font-size:11px;color:#174d53}
 .cart-alloc-pill b{font-variant-numeric:tabular-nums}
@@ -45,7 +44,6 @@
  #printSheet .detail-print td.num,#printSheet .detail-print th.num{text-align:right}
 }
 
-/* 第4版：別会話のサイトデザイン案を反映。学校で使いやすい白×ネイビー×明るい青 */
 :root{--ink:#21354e;--muted:#657b91;--line:#dbe5ef;--brand:#1768b3;--brand-dark:#0b4278;--brand-pale:#edf6ff;--bg:#f7fafe;--soft:#eff6fc;--shadow:0 10px 30px rgba(30,67,116,.07)}
 .topstrip{background:#142f50;color:#f2f7ff}.topstrip a{color:#f2f7ff}
 .logo-mark,.cartnav{background:#175b9c}.label{border-color:#cae3f7;color:#195f9a;background:#eff7fe}
@@ -93,8 +91,6 @@
 }
 @media print{#productModal,.category-section{display:none!important}}
 
-
-/* 参照画像のトップ：青白基調、写真は指定画像の教室部分のみ切り出し */
 :root{--brand:#0767bf;--brand-dark:#07518f;--brand-pale:#e8f3ff;--ink:#122849;--muted:#53687f;--line:#d6e5f2;--bg:#f4f9fd;--soft:#edf6ff}
 .t-width{width:min(1348px,calc(100% - 56px));margin:auto}
 .t-topstrip{font-size:12px;color:#294969;background:#eef8ff;border-bottom:1px solid #e9f1f6}
@@ -105,9 +101,6 @@
 .t-header{background:#fff;box-shadow:0 3px 11px #1f497210;position:relative;z-index:2}
 .t-headrow{display:flex;align-items:center;gap:20px;min-height:116px}
 .t-brand{display:flex;align-items:center;gap:17px;white-space:nowrap;text-decoration:none;color:#081f43}
-
-
-
 
 .t-dealer{display:flex;gap:16px;align-items:center;background:#edf6ff;color:#0e2950;border-radius:6px;padding:17px 16px;flex:none}
 .t-dealer svg{width:40px;height:40px;color:#0954a1}
@@ -150,7 +143,6 @@
 @media(max-width:820px){.t-width{width:min(100% - 30px,1348px)}.t-stripright{display:none}.t-stripline{min-height:32px;justify-content:center}.t-headrow{flex-wrap:wrap;gap:11px;min-height:unset;padding:13px 0}.t-brand{margin-right:auto;gap:7px}.t-mainnav{order:5;width:100%;overflow-x:auto;gap:20px;padding:8px 0 2px}.t-mainnav a{font-size:12px}.t-dealer{display:none}.t-headsearch{width:38px;height:38px}.t-quote{min-height:41px;font-size:11px;padding:0 9px}.t-hero,.t-hero-inner{min-height:unset}.t-hero-photo{width:50%;opacity:1}.t-hero-photo img{object-fit:cover;object-position:right center}.t-hero-fade{background:linear-gradient(90deg,#fff 0 50%,transparent 50%)}.t-hero-copy{width:49%}.t-hero-copy{padding:47px 0 38px}.t-hero h1{font-size:clamp(27px,6vw,42px);white-space:normal;letter-spacing:-.04em}.t-hero-copy>p{font-size:13px;line-height:1.8}.t-desktop{display:none}.t-eyebrow{font-size:15px;margin-bottom:20px}.t-hero-actions{gap:10px;margin-top:25px}.t-button{font-size:13px;gap:9px;padding:0 12px;min-height:51px;min-width:0}.t-button svg{height:22px;width:22px}.t-button span{font-size:18px}.t-trust{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:31px}.t-trust>div{gap:8px}.t-trust>div>svg{padding:8px;width:23px;height:23px}.t-trust b{font-size:11px;padding:2px 0 3px}.t-trust small{font-size:10px}.t-notice{padding:12px 0}.t-noticebar{min-height:unset;display:grid;grid-template-columns:auto 1fr;gap:7px 13px;padding:12px}.t-noticebar strong{font-size:13px;border:0;padding:0;grid-column:1/-1}.t-noticebar strong svg{width:23px;height:23px}.t-noticebar .t-noticecopy{font-size:12px}.t-noticebar a{grid-column:1/-1;margin:0;justify-self:end;font-size:12px}}
 @media(max-width:390px){.t-quote{font-size:11px;padding:0 7px}.t-headsearch{width:34px;height:34px}.t-hero h1{font-size:26px}.t-hero-actions{gap:7px}.t-button{font-size:12px;padding:0 9px}}
 
-/* Approved logo, used unchanged. Only size behavior is adjusted for small screens. */
 .t-brand{flex:0 0 auto;min-width:0;gap:0}
 .t-brand-image{display:block;width:292px;height:auto;max-width:100%}
 @media(max-width:1350px){.t-brand-image{width:252px}}
@@ -162,7 +154,6 @@
 @media(max-width:820px){.t-mobile-links{display:flex;justify-content:center;gap:16px;padding:8px 14px;background:#f1f8ff;border-bottom:1px solid #dceaf6}.t-mobile-links a{font-size:12px;color:#07559d;font-weight:800;text-decoration:none}}
 @media print{.t-mobile-links{display:none}}
 
-/* Multi-page navigation (only new site-specific styles) */
 .site-page{background:#f7fbff;min-height:65vh;padding:30px 0 70px}
 .site-breadcrumb{font-size:13px;color:#5d7390;margin-bottom:18px}
 .site-breadcrumb a{color:#1261aa;text-decoration:none}
@@ -203,3 +194,11 @@
 @media print{.site-page,.site-order-intro{display:none!important}}
 
 @media(max-width:600px){.t-hero{display:flex;flex-direction:column}.t-hero-inner{order:1}.t-hero-photo{position:relative;right:auto;top:auto;order:2;width:100%;height:320px}.t-hero-photo img{object-fit:cover;object-position:center top}.t-hero-fade{display:none}.t-hero-copy{width:100%}}
+
+#reviewContent .doc-number{border:1px solid #d5e6f5;background:#f2f8ff;border-radius:8px;padding:12px 14px}
+#reviewContent .doc-number .review-item dd{font-weight:800;color:#0c315e;overflow-wrap:anywhere}
+@media print{
+ .t-topstrip,.t-header,.t-mobile-links{display:none!important}
+ #printSheet .p-number{border:1px solid #bbb;padding:2mm 3mm;margin:2mm 0 4mm}
+ #printSheet .p-number .kv span{font-weight:700}
+}
