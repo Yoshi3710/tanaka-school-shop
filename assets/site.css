@@ -119,7 +119,7 @@
 .t-quote{min-height:61px;background:#0860b9;color:#fff;display:flex;align-items:center;gap:9px;padding:0 18px;border-radius:7px;text-decoration:none;font-size:15px;font-weight:900;white-space:nowrap}
 .t-quote:hover,.t-button-primary:hover{background:#054c97;color:white}
 .t-hero{position:relative;overflow:hidden;background:#fff;min-height:749px}
-.t-hero-photo{position:absolute;right:0;top:0;height:100%;width:55%;background:url('classroom.webp') center right/100% 100% no-repeat}
+.t-hero-photo{position:absolute;right:0;top:0;height:100%;width:55%;overflow:hidden}.t-hero-photo img{display:block;width:100%;height:100%;object-fit:fill}
 .t-hero-fade{position:absolute;inset:0;background:linear-gradient(90deg,#fff 0%,#fff 25%,#fffffffa 37%,#ffffffe0 45%,#ffffff48 56%,transparent 70%)}
 .t-hero-inner{position:relative;min-height:749px;display:flex;align-items:center}
 .t-hero-copy{width:100%;padding:48px 0 43px}
