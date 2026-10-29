@@ -38,7 +38,13 @@ function totalPrice(){return PRODUCTS.reduce((s,p)=>s+(cart[p.id]||0)*p.price,0)
 function setCart(id,num,silent=false){cart[id]=qty(num);if(!silent){renderCart();flash(cart[id]?'ご注文内容を更新しました':'数量を0にしました')}else renderCart()}
 let activeCategory="all";
 function renderProducts(){const q=$('searchProduct').value.trim().toLowerCase();const found=PRODUCTS.filter(p=>[p.name,p.sku,p.id,'サクラクレパス',p.description].join(' ').toLowerCase().includes(q)&& (activeCategory==='all'||(activeCategory==='25cm'&&p.id==='288587')||(activeCategory==='three'&&p.id==='217701')||(activeCategory==='30cm'&&p.id==='288617')));$('productGrid').innerHTML=found.map((p,i)=>`<article class="product"><div class="product-img"><span class="product-badge ${i?'alt':''}">${esc(p.tag)}</span><img src="${samplePhoto()}" alt="" aria-hidden="true"><img class="photo-real" loading="lazy" src="${p.image}" alt="${esc(p.name)}の商品写真" onload="this.style.opacity=1"></div><div class="prod-body"><div class="prod-maker">サクラクレパス　品番 ${p.id} ／ ${esc(p.sku)}</div><h3 class="prod-title">${esc(p.name)}</h3><p class="prod-desc">${esc(p.description)}</p><div class="prod-bottom"><div class="prod-price">${fmt(p.price)}<small>税込</small></div><p class="price-note">メーカー参考価格・タナカ販売価格は別途ご案内</p><div class="prod-action"><a class="btn btn-secondary" href="products/design-set.html#item-${p.id}">商品詳細</a><button class="btn btn-primary" type="button" data-detail="${p.id}">ご注文</button></div><a class="prod-link" href="${p.url}" target="_blank" rel="noopener noreferrer">メーカーの商品詳細を見る ↗</a></div></div></article>`).join('');$('noResults').style.display=found.length?'none':'block'}
-function renderCart(){$('cartBadge').textContent=totalCount();const items=PRODUCTS.filter(p=>cart[p.id]>0);$('orderLines').innerHTML=items.length?items.map(p=>`<div class="cartline"><img src="${samplePhoto()}" alt=""><div><div class="cartname">${esc(p.name)}</div><div class="cartcode">品番 ${p.id} ｜ 参考単価 ${fmt(p.price)}</div><div class="alloc-state ${classAllocations[p.id]&&classAllocations[p.id].total===cart[p.id]?'':'warning'}">${classAllocations[p.id]&&classAllocations[p.id].total===cart[p.id]?'✓ 学年・組別の明細が登録済み':'学年・組の内訳が未登録／数量不一致'}</div>${classAllocations[p.id]&&classAllocations[p.id].total===cart[p.id]?`<div class="cart-alloc-list">${classAllocations[p.id].rows.map(r=>`<span class="cart-alloc-pill">${esc(r.grade)}${esc(r.classNo)} <b>${r.count}個</b></span>`).join('')}${classAllocations[p.id].spare?`<span class="cart-alloc-pill">予備・別梱包 <b>${classAllocations[p.id].spare}個</b></span>`:''}</div>`:''}<button class="inline-link" type="button" data-editclass="${p.id}">クラス別明細を編集</button>　<button class="inline-link" type="button" data-remove="${p.id}">削除</button></div><div class="stepper" aria-label="${esc(p.name)}の数量"><button type="button" data-minus="${p.id}" aria-label="数量を1減らす">−</button><input type="number" min="0" max="9999" inputmode="numeric" aria-label="ご注文数量" value="${cart[p.id]}" data-qty="${p.id}"><button type="button" data-plus="${p.id}" aria-label="数量を1増やす">＋</button></div></div>`).join(''):'<div class="emptycart"><strong>まだ教材が選ばれていません</strong>上の商品から必要な教材を追加してください。</div>';$('cartCalc').classList.toggle('noshow',!items.length);$('cartAmount').textContent=fmt(totalPrice())}
+function renderCart(){
+ $('cartBadge').textContent=totalCount();
+ const items=PRODUCTS.filter(p=>cart[p.id]>0);
+ $('orderLines').innerHTML=items.length?items.map(p=>`<div class="cartline"><img src="${samplePhoto()}" alt=""><div><div class="cartname">${esc(p.name)}</div><div class="cartcode">品番 ${p.id} ｜ 参考単価 ${fmt(p.price)}</div><div class="alloc-state ${classAllocations[p.id]&&classAllocations[p.id].total===cart[p.id]?'':'warning'}">${classAllocations[p.id]&&classAllocations[p.id].total===cart[p.id]?'✓ 学年・組別の明細が登録済み':'学年・組の内訳が未登録／数量不一致'}</div>${classAllocations[p.id]&&classAllocations[p.id].total===cart[p.id]?`<div class="cart-alloc-list">${classAllocations[p.id].rows.map(r=>`<span class="cart-alloc-pill">${esc(r.grade)}${esc(r.classNo)} <b>${r.count}個</b></span>`).join('')}${classAllocations[p.id].spare?`<span class="cart-alloc-pill">予備・別梱包 <b>${classAllocations[p.id].spare}個</b></span>`:''}</div>`:''}<button class="inline-link" type="button" data-editclass="${p.id}">クラス別明細を編集</button>　<button class="inline-link" type="button" data-remove="${p.id}">削除</button></div><div class="cart-qty" aria-label="${esc(p.name)}の合計数量"><strong>${cart[p.id].toLocaleString('ja-JP')}</strong><span>個</span></div></div>`).join(''):'<div class="emptycart"><strong>まだ教材が選ばれていません</strong>上の商品から必要な教材を追加してください。</div>';
+ $('cartCalc').classList.toggle('noshow',!items.length);
+ $('cartAmount').textContent=fmt(totalPrice());
+}
 const YEAR_OPTIONS=['1年','2年','3年','その他'];
 const CLASS_OPTIONS=Array.from({length:15},(_,i)=>(i+1)+'組').concat(['特別支援','その他']);
 function initialRows(){return [{grade:'1年',classNo:'1組',count:''},{grade:'1年',classNo:'2組',count:''}];}
@@ -62,7 +68,32 @@ function loadClassProduct(id){
  renderClasses();
 }
 
-function scrollToOrder(){$('order').scrollIntoView({behavior:'smooth',block:'start'})}
+function scrollToOrder(){setOrderStep(false);$('order').scrollIntoView({behavior:'smooth',block:'start'})}
+function setOrderStep(info,scroll=true){
+ document.body.classList.toggle('school-info-step',info);
+ $('selectedItemsPanel').classList.toggle('noshow',info);
+ $('orderForm').classList.toggle('noshow',!info);
+ $('orderStepTitle').textContent=info?'学校・お届け先情報の入力':'選択した教材の確認';
+ $('orderStepDesc').textContent=info?'学校名・ご担当の先生・お届け先などをご入力ください。':'登録した学年・組別の数量をご確認ください。次に学校情報を入力します。';
+ if(scroll)requestAnimationFrame(()=>$('order').scrollIntoView({behavior:'smooth',block:'start'}));
+}
+function goToSchoolInfo(){
+ $('cartStepError').textContent='';
+ if(!totalCount()){$('cartStepError').textContent='先に教材とクラス別の数量を登録してください。';scrollToOrder();return}
+ const incomplete=PRODUCTS.find(p=>cart[p.id]>0&&(!classAllocations[p.id]||classAllocations[p.id].total!==cart[p.id]));
+ if(incomplete){$('cartStepError').textContent='クラス別数量が未登録の商品があります。「クラス別明細を編集」で数量をご確認ください。';scrollToOrder();return}
+ if(location.hash!=='#school-information')history.pushState({step:'school-information'},'','#school-information');
+ setOrderStep(true);
+}
+function returnToItems(){
+ if(location.hash==='#school-information')history.back();
+ else scrollToOrder();
+}
+window.addEventListener('popstate',()=>{
+ const info=location.hash==='#school-information'&&totalCount()>0;
+ setOrderStep(info);
+});
+
 function formValue(id){return $(id).value.trim()}
 function selectedRadio(name){return document.querySelector(`input[name="${name}"]:checked`)?.value||''}
 function getData(){
@@ -167,14 +198,20 @@ $('detailAddToCart').addEventListener('click',()=>{
  classAllocations[detailProductId]={productId:detailProductId,productName:p.name,rows:used.map(r=>({grade:r.grade,classNo:r.classNo,count:qty(r.count)})),spare,total};
  setCart(detailProductId,total,true);
  $('helperProduct').value=detailProductId;loadClassProduct(detailProductId);
- closeProductModal();flash(`${p.name}：${total}個をクラス別に登録しました`);scrollToOrder();
+ closeProductModal();flash(`${p.name}：${total}個をクラス別に登録しました`);goToSchoolInfo();
 });
 
 $('searchProduct').addEventListener('input',renderProducts);
 $('productGrid').addEventListener('click',e=>{const b=e.target.closest('[data-detail]');if(!b)return;openProductModal(b.dataset.detail,b)});
 $('cartTop').addEventListener('click',scrollToOrder);
-$('orderLines').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;const id=b.dataset.plus||b.dataset.minus||b.dataset.remove||b.dataset.editclass;if(!id)return;if(b.dataset.editclass){$('helperProduct').value=id;loadClassProduct(id);$('class-helper').scrollIntoView({behavior:'smooth'});return}let n=cart[id]||0;if(b.dataset.plus)n++;else if(b.dataset.minus)n--;else n=0;setCart(id,n,true)});
-$('orderLines').addEventListener('change',e=>{const input=e.target.closest('[data-qty]');if(input)setCart(input.dataset.qty,input.value,true)});
+$('goToSchoolInfo').addEventListener('click',goToSchoolInfo);
+$('backToItems').addEventListener('click',returnToItems);
+$('orderLines').addEventListener('click',e=>{
+ const b=e.target.closest('button');if(!b)return;
+ if(b.dataset.editclass){const id=b.dataset.editclass;$('helperProduct').value=id;loadClassProduct(id);$('class-helper').scrollIntoView({behavior:'smooth'});return}
+ if(b.dataset.remove){const id=b.dataset.remove;delete classAllocations[id];setCart(id,0,true)}
+});
+
 $('helperProduct').innerHTML=PRODUCTS.map(p=>`<option value="${p.id}">${esc(p.name)}</option>`).join('');
 function handleClassField(e){
  const t=e.target;if(!t.dataset)return;
@@ -204,9 +241,9 @@ $('applyClass').addEventListener('click',()=>{
  const id=$('helperProduct').value, p=productById(id);
  const rows=used.map(r=>({grade:r.grade,classNo:r.classNo,count:qty(r.count)}));
  classAllocations[id]={productId:id,productName:p.name,rows,spare:qty($('spareCount').value),total:sum};
- setCart(id,sum,true);flash('クラス別納品明細と合計 '+sum+'個をご注文内容に反映しました');scrollToOrder();
+ setCart(id,sum,true);flash('クラス別納品明細と合計 '+sum+'個を登録しました');goToSchoolInfo();
 });
-for(const r of document.querySelectorAll('[name="requestType"]'))r.addEventListener('change',()=>{$('paymentSection').classList.toggle('noshow',selectedRadio('requestType')==='見積依頼');const title=document.querySelector('#orderForm button[type=submit]');title.textContent=selectedRadio('requestType')==='見積依頼'?'内容を確認して、見積依頼書を作る →':'内容を確認して、ご注文内容を作る →'});
+for(const r of document.querySelectorAll('[name="requestType"]'))r.addEventListener('change',()=>{$('paymentSection').classList.toggle('noshow',selectedRadio('requestType')==='見積依頼');const title=document.querySelector('#orderForm button[type=submit]');title.textContent=selectedRadio('requestType')==='見積依頼'?'見積り内容を確認する →':'ご注文内容を確認する →'});
 $('orderForm').addEventListener('submit',e=>{e.preventDefault();$('formError').textContent='';if(!totalCount()){$('formError').textContent='商品を1点以上選択してください。';$('products').scrollIntoView({behavior:'smooth'});return}const missing=PRODUCTS.filter(p=>cart[p.id]>0&&(!classAllocations[p.id]||classAllocations[p.id].total!==cart[p.id]));if(missing.length){$('formError').textContent='学年・組の内訳が未登録、またはご注文数量と一致しない商品があります。商品ごとに学年・組別の納品明細を登録してください。';$('helperProduct').value=missing[0].id;loadClassProduct(missing[0].id);$('class-helper').scrollIntoView({behavior:'smooth'});return}for(const id of ['schoolName','teacherName','phone','email']){const el=$(id);if(!el.value.trim()){ $('formError').textContent='必須項目を入力してください。';el.focus();return}}const email=$('email');if(!email.checkValidity()){$('formError').textContent='正しいメールアドレスを入力してください。';email.focus();return}if(!$('agree').checked){$('formError').textContent='確認事項にチェックを入れてください。';$('agree').focus();return}reviewData=getData();reviewData.documentNumber=makeDraftNumber(reviewData.requestType);reviewData.quoteReference=reviewData.requestType==='注文'&&lastQuoteReference?.school===reviewData.school?lastQuoteReference.number:'';if(reviewData.requestType==='見積依頼')lastQuoteReference={number:reviewData.documentNumber,school:reviewData.school};$('modalTitle').textContent=docName(reviewData)+'の確認';$('printOrder').textContent=docName(reviewData)+'を印刷・PDF保存';$('reviewContent').innerHTML=reviewHtml(reviewData);buildPrint(reviewData);$('reviewModal').classList.add('open');$('reviewModal').setAttribute('aria-hidden','false');document.body.style.overflow='hidden';$('closeReview').focus()});
 $('closeReview').addEventListener('click',closeModal);$('backEdit').addEventListener('click',closeModal);$('reviewModal').addEventListener('click',e=>{if(e.target===$('reviewModal'))closeModal()});document.addEventListener('keydown',e=>{if(e.key==='Escape'){if($('reviewModal').classList.contains('open'))closeModal();else if($('productModal').classList.contains('open'))closeProductModal()}});
 $('printOrder').addEventListener('click',()=>{if(reviewData)window.print()});$('csvOrder').addEventListener('click',()=>{if(reviewData)downloadCSV(reviewData)});$('copyOrder').addEventListener('click',async()=>{if(!reviewData)return;const content=orderText(reviewData);try{await navigator.clipboard.writeText(content);flash('ご注文内容をコピーしました')}catch{const ta=document.createElement('textarea');ta.value=content;ta.style.position='fixed';ta.style.left='-9999px';document.body.appendChild(ta);ta.select();const ok=document.execCommand('copy');ta.remove();flash(ok?'ご注文内容をコピーしました':'コピーできない場合は印刷をご利用ください')}});
