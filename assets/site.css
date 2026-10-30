@@ -89,10 +89,10 @@
 
 :root{--brand:#0767bf;--brand-dark:#07518f;--brand-pale:#e8f3ff;--ink:#122849;--muted:#53687f;--line:#d6e5f2;--bg:#f4f9fd;--soft:#edf6ff}
 .t-width{width:min(1348px,calc(100% - 56px));margin:auto}
-.t-topstrip{font-size:12px;color:#294969;background:#eef8ff;border-bottom:1px solid #e9f1f6}
-.t-stripline{min-height:42px;display:flex;align-items:center;justify-content:space-between;gap:12px}
-.t-stripright,.t-stripright>span{display:flex;align-items:center;gap:8px}
-.t-stripright svg{width:20px;height:20px}
+
+
+
+
 .t-header{background:#fff;box-shadow:0 3px 11px #1f497210;position:relative;z-index:2}
 .t-headrow{display:flex;align-items:center;gap:20px;min-height:116px}
 .t-brand{display:flex;align-items:center;gap:17px;white-space:nowrap;text-decoration:none;color:#081f43}
@@ -137,7 +137,7 @@
 .t-category-header .category-title{margin:0}
 .t-category-header .cartnav{background:#1768b3}
 @media(max-width:1240px){.t-headrow{gap:12px;min-height:91px}.t-brand{gap:11px}.t-dealer{padding:10px;gap:8px}.t-dealer svg{width:27px;height:27px}.t-dealer b{font-size:14px}.t-dealer small{display:none}.t-mainnav{gap:12px}.t-mainnav a{font-size:12px}.t-quote{font-size:12px;min-height:48px;padding:0 12px}.t-quote svg{width:19px}.t-hero h1{font-size:clamp(34px,4.1vw,52px)}.t-hero-copy>p{font-size:15px}.t-eyebrow{font-size:18px}.t-hero,.t-hero-inner{min-height:650px}.t-trust{gap:12px}.t-trust b{font-size:12px}.t-trust small{font-size:10px}.t-trust>div{gap:5px}}
-@media(max-width:820px){.t-width{width:min(100% - 30px,1348px)}.t-stripright{display:none}.t-stripline{min-height:36px;justify-content:center}.t-headrow{flex-wrap:wrap;gap:11px;min-height:unset;padding:13px 0}.t-brand{margin-right:auto;gap:7px}.t-mainnav{order:5;width:100%;overflow-x:auto;gap:20px;padding:8px 0 2px}.t-mainnav a{font-size:12px}.t-dealer{display:none}.t-quote,.t-order{min-height:41px;font-size:11px;padding:0 9px}.t-hero,.t-hero-inner{min-height:unset}.t-hero-photo{width:50%;opacity:1}.t-hero-photo img{object-fit:cover;object-position:right center}.t-hero-fade{background:linear-gradient(90deg,#fff 0 50%,transparent 50%)}.t-hero-copy{width:49%}.t-hero-copy{padding:47px 0 38px}.t-hero h1{font-size:clamp(27px,6vw,42px);white-space:normal;letter-spacing:-.04em}.t-hero-copy>p{font-size:13px;line-height:1.8}.t-desktop{display:none}.t-eyebrow{font-size:15px;margin-bottom:20px}.t-hero-actions{gap:10px;margin-top:25px}.t-button{font-size:13px;gap:9px;padding:0 12px;min-height:51px;min-width:0}.t-button svg{height:22px;width:22px}.t-button span{font-size:18px}.t-trust{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:31px}.t-trust>div{gap:8px}.t-trust>div>svg{padding:8px;width:23px;height:23px}.t-trust b{font-size:11px;padding:2px 0 3px}.t-trust small{font-size:10px}.t-notice{padding:12px 0}.t-noticebar{min-height:unset;display:grid;grid-template-columns:auto 1fr;gap:7px 13px;padding:12px}.t-noticebar strong{font-size:13px;border:0;padding:0;grid-column:1/-1}.t-noticebar strong svg{width:23px;height:23px}.t-noticebar .t-noticecopy{font-size:12px}.t-noticebar a{grid-column:1/-1;margin:0;justify-self:end;font-size:12px}}
+@media(max-width:820px){.t-width{width:min(100% - 30px,1348px)}.t-headrow{flex-wrap:wrap;gap:11px;min-height:unset;padding:13px 0}.t-brand{margin-right:auto;gap:7px}.t-mainnav{order:5;width:100%;overflow-x:auto;gap:20px;padding:8px 0 2px}.t-mainnav a{font-size:12px}.t-dealer{display:none}.t-quote,.t-order{min-height:41px;font-size:11px;padding:0 9px}.t-hero,.t-hero-inner{min-height:unset}.t-hero-photo{width:50%;opacity:1}.t-hero-photo img{object-fit:cover;object-position:right center}.t-hero-fade{background:linear-gradient(90deg,#fff 0 50%,transparent 50%)}.t-hero-copy{width:49%}.t-hero-copy{padding:47px 0 38px}.t-hero h1{font-size:clamp(27px,6vw,42px);white-space:normal;letter-spacing:-.04em}.t-hero-copy>p{font-size:13px;line-height:1.8}.t-desktop{display:none}.t-eyebrow{font-size:15px;margin-bottom:20px}.t-hero-actions{gap:10px;margin-top:25px}.t-button{font-size:13px;gap:9px;padding:0 12px;min-height:51px;min-width:0}.t-button svg{height:22px;width:22px}.t-button span{font-size:18px}.t-trust{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:31px}.t-trust>div{gap:8px}.t-trust>div>svg{padding:8px;width:23px;height:23px}.t-trust b{font-size:11px;padding:2px 0 3px}.t-trust small{font-size:10px}.t-notice{padding:12px 0}.t-noticebar{min-height:unset;display:grid;grid-template-columns:auto 1fr;gap:7px 13px;padding:12px}.t-noticebar strong{font-size:13px;border:0;padding:0;grid-column:1/-1}.t-noticebar strong svg{width:23px;height:23px}.t-noticebar .t-noticecopy{font-size:12px}.t-noticebar a{grid-column:1/-1;margin:0;justify-self:end;font-size:12px}}
 @media(max-width:390px){.t-quote,.t-order{font-size:11px;padding:0 7px}.t-hero h1{font-size:26px}.t-hero-actions{gap:7px}.t-button{font-size:12px;padding:0 9px}}
 
 .t-brand{flex:0 0 auto;min-width:0;gap:0}
@@ -193,7 +193,7 @@
 #reviewContent .doc-number{border:1px solid #d5e6f5;background:#f2f8ff;border-radius:8px;padding:12px 14px}
 #reviewContent .doc-number .review-item dd{font-weight:800;color:#0c315e;overflow-wrap:anywhere}
 @media print{
- .t-topstrip,.t-header,.t-lesson-bar{display:none!important}
+ .t-header,.t-lesson-bar{display:none!important}
  #printSheet .p-number{border:1px solid #bbb;padding:2mm 3mm;margin:2mm 0 4mm}
  #printSheet .p-number .kv span{font-weight:700}
 }
@@ -203,8 +203,6 @@
  .t-mainnav{order:5;width:100%;margin-left:0;justify-content:flex-end;padding:0 0 12px}
 }
 @media(max-width:540px){
- .t-stripline{flex-wrap:wrap;justify-content:center;gap:3px 12px;padding:6px 0}
- .t-stripline>span{width:100%;text-align:center;font-size:11px}
   .t-headrow{justify-content:center}
  .t-brand{width:100%;margin-right:0}
  .t-quote,.t-order{justify-content:center}
@@ -230,16 +228,15 @@ body.school-info-step .order-sidebar{display:none}
  .order-next>.btn{white-space:normal}
 }
 
-/* 技術科教材の案内バー。サイト内ナビとは独立して表示 */
-.t-lesson-bar{background:#edf6ff;border-bottom:1px solid #d7e8f6}
-.t-lesson-link{width:min(1348px,calc(100% - 56px));min-height:54px;margin:auto;padding:10px 0;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:4px 18px;line-height:1.5;text-decoration:none;color:#123e70}
-.t-lesson-link:hover{background:#e6f2ff}
-.t-lesson-copy{font-size:13px;color:#315e87}
-.t-lesson-link strong{font-size:15px;color:#0c4687}
-.t-lesson-action{font-size:12px;font-weight:800;color:#0765be;text-decoration:underline;text-underline-offset:3px;white-space:nowrap}
+/* 教材案内は販促帯ではなく控えめな補助リンクとして表示 */
+.t-lesson-bar{background:#fff}
+.t-lesson-link{width:min(1348px,calc(100% - 56px));min-height:26px;margin:auto;padding:3px 0;display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:2px 8px;line-height:1.4;text-decoration:none;color:#61768b}
+.t-lesson-link:hover{text-decoration:underline}
+.t-lesson-copy{font-size:11px;color:#61768b}
+.t-lesson-link strong{font-size:11px;color:#516b82;font-weight:600}
+.t-lesson-action{font-size:11px;font-weight:500;color:#61768b;white-space:nowrap}
 @media(max-width:820px){
  .t-mainnav{overflow-x:visible;flex-wrap:wrap;justify-content:center;gap:8px 17px}
- .t-lesson-link{width:calc(100% - 30px);min-height:0;padding:10px 0;gap:3px 11px;text-align:center}
- .t-lesson-copy{width:100%;font-size:12px}
- .t-lesson-link strong{font-size:13px}
+ .t-lesson-link{width:calc(100% - 30px);min-height:24px;padding:3px 0;gap:2px 6px;justify-content:center;text-align:center}
+ .t-lesson-copy,.t-lesson-link strong,.t-lesson-action{font-size:10px}
 }
