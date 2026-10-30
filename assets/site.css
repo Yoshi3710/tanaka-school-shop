@@ -193,7 +193,7 @@
 #reviewContent .doc-number{border:1px solid #d5e6f5;background:#f2f8ff;border-radius:8px;padding:12px 14px}
 #reviewContent .doc-number .review-item dd{font-weight:800;color:#0c315e;overflow-wrap:anywhere}
 @media print{
- .t-topstrip,.t-header{display:none!important}
+ .t-topstrip,.t-header,.t-lesson-bar{display:none!important}
  #printSheet .p-number{border:1px solid #bbb;padding:2mm 3mm;margin:2mm 0 4mm}
  #printSheet .p-number .kv span{font-weight:700}
 }
