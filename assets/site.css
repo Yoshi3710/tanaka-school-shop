@@ -57,9 +57,9 @@
 .category-row{display:flex;gap:9px;flex-wrap:wrap}
 .category-button{border:1px solid #d7e3f0;color:#28567d;background:#fff;border-radius:12px;padding:9px 15px;font-size:13px;font-weight:800;min-height:43px}
 .category-button:hover,.category-button[aria-pressed="true"]{background:#1768b3;color:#fff;border-color:#1768b3}
-.store-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:18px;gap:8px}
-.store-steps span{padding:10px 8px;background:#fff;border:1px solid #e0eaf4;border-radius:9px;color:#315775;font-weight:700;font-size:12px;text-align:center}
-.store-steps b{display:inline-grid;place-items:center;width:21px;height:21px;margin-right:6px;border-radius:50%;background:#e8f3ff;color:#1465a6;font-size:12px}
+
+
+
 .product-img{cursor:default}.prod-action .btn{flex:1}.product-detail-link{border:0;background:transparent;color:#165e9b;font-size:13px;font-weight:800;text-decoration:underline;padding:4px 0}
 .detail-modal-card{max-width:940px!important}.detail-summary{display:grid;grid-template-columns:220px minmax(0,1fr);gap:25px;align-items:center;margin-bottom:16px}
 .detail-photo{display:grid;place-items:center;height:215px;border:1px solid #e4ecf4;border-radius:12px;background:#fff;position:relative;overflow:hidden}
@@ -82,7 +82,7 @@
 .detail-product-note{font-size:11px;color:#677b8a;margin-top:7px}
 @media(max-width:680px){
  .category-section{padding:16px 0 8px}.category-title{margin-bottom:7px}.category-button{font-size:11px;padding:8px 11px;min-height:36px;border-radius:9px}
- .store-steps{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}.store-steps span{font-size:10px;padding:7px 3px}
+ 
  .detail-modal-card{margin:4px auto 25px}.detail-summary{grid-template-columns:92px minmax(0,1fr);gap:13px;margin-bottom:9px}
  .detail-photo{height:112px}.detail-summary h3{font-size:15px;margin-bottom:4px}.detail-sku,.detail-desc{font-size:11px;margin:3px 0}.detail-price{font-size:21px}
  .detail-class-head,.detail-class-row{grid-template-columns:minmax(0,1fr) minmax(0,1fr) 67px 66px;gap:5px}
