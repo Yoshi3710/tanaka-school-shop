@@ -214,24 +214,42 @@ body.school-info-step .order-sidebar{display:none}
  .order-next>.btn{white-space:normal}
 }
 
-/* ロゴ上部の企業コピーと、トップ下部の補助教材リンク */
+/* ロゴ上部の企業コピー */
 .t-brand{flex-direction:column;align-items:flex-start;gap:3px}
 .t-motto{display:block;font-size:11px;font-weight:500;line-height:1.4;letter-spacing:.03em;color:#637b92;white-space:normal}
-.t-related{padding:9px 0 16px}
-.t-related .t-width{max-width:1000px}
-.t-related-card{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:8px 14px;border:1px solid #efcda3;border-left:3px solid #b7651d;border-radius:8px;background:#fff7eb}
-.t-related-body{display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;min-width:0}
-.t-related-body span{font-size:12px;line-height:1.5;color:#55483c}
-.t-related-body strong{color:#52351f;font-size:13px;line-height:1.5}
-.t-related-button{flex:none;display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:6px 11px;border-radius:6px;background:#93400e;color:#fff;font-size:12px;font-weight:800;text-decoration:none;white-space:nowrap}
-.t-related-button:hover{background:#713008;color:#fff}
 @media(max-width:820px){
  .t-mainnav{overflow-x:visible;flex-wrap:wrap;justify-content:center;gap:8px 17px}
  .t-motto{font-size:10px}
- .t-related-card{flex-wrap:wrap;gap:8px;padding:9px 11px}
- .t-related-body{gap:2px 8px}
- .t-related-button{padding:6px 10px;white-space:nowrap}
 }
 /* トップの「学校指定教材を、」だけを途中改行させない */
 .t-hero h1 .t-headline-unit{display:inline-block;white-space:nowrap}
 @media(min-width:601px) and (max-width:820px){.t-hero h1 .t-headline-unit{font-size:min(1em,5.5vw)}}
+
+/* ライフイズテック専用：既存サイトのCSSに干渉しない */
+.lit-banner{width:min(100% - 30px,760px);margin:8px auto 12px}
+.lit-banner,.lit-banner *{box-sizing:border-box}
+.lit-banner__link{position:relative;isolation:isolate;overflow:hidden;min-height:54px;padding:7px 13px;display:flex;align-items:center;gap:12px;border:1px solid #dda623;border-left:4px solid #fff0a8;border-radius:8px;background:linear-gradient(105deg,#ffcd39 0%,#ffe065 58%,#ffbc35 100%);box-shadow:0 3px 12px #8a641f24;color:#1c304b;text-decoration:none;font-family:inherit}
+.lit-banner__link::before{content:"";position:absolute;inset:0 auto 0 -40%;width:40%;background:linear-gradient(90deg,transparent,#fff8d478,#ffffffdf,#fff8d478,transparent);transform:skewX(-22deg);animation:lit-banner-shine 4.4s ease-in-out infinite;pointer-events:none}
+.lit-banner__link::after{content:"";position:absolute;bottom:0;left:0;width:35%;height:3px;background:linear-gradient(90deg,transparent,#fff3ab,#fff,transparent);box-shadow:0 0 8px #fff4b6;animation:lit-banner-line 4.4s ease-in-out infinite;pointer-events:none}
+.lit-banner__text{position:relative;z-index:1;display:flex;flex-direction:column;min-width:0;gap:1px;line-height:1.35}
+.lit-banner__label{color:#654507;font-size:10px;font-weight:700;letter-spacing:.025em}
+.lit-banner__title{font-size:16px;font-weight:900;letter-spacing:.02em;color:#1c304b;line-height:1.4}
+.lit-banner__title span{display:inline-block;white-space:nowrap}
+.lit-banner__button{position:relative;z-index:1;display:inline-flex;flex:none;align-items:center;justify-content:center;gap:7px;margin-left:auto;padding:7px 11px;min-height:34px;border-radius:6px;background:#16345b;color:#ffffff;font-size:11px;font-weight:800;white-space:nowrap;line-height:1.3}
+.lit-banner__arrow{display:inline-block;font-size:19px;line-height:1;animation:lit-banner-arrow 2s ease-in-out infinite}
+.lit-banner__link:hover{background:linear-gradient(105deg,#ffdc49 0%,#ffea82 58%,#ffca47 100%);text-decoration:none;color:#1c304b}
+.lit-banner__link:hover .lit-banner__arrow,.lit-banner__link:focus-visible .lit-banner__arrow{transform:translateX(3px)}
+.lit-banner__link:focus-visible{outline:3px solid #16345b;outline-offset:3px}
+@keyframes lit-banner-shine{0%,12%{transform:translateX(0) skewX(-22deg);opacity:0}20%{opacity:1}63%{transform:translateX(390%) skewX(-22deg);opacity:1}76%,100%{transform:translateX(390%) skewX(-22deg);opacity:0}}
+@keyframes lit-banner-line{0%,12%{transform:translateX(-100%);opacity:0}20%{opacity:1}63%{transform:translateX(410%);opacity:1}76%,100%{transform:translateX(410%);opacity:0}}
+@keyframes lit-banner-arrow{0%,55%,100%{transform:translateX(0)}70%{transform:translateX(4px)}82%{transform:translateX(0)}}
+@media(max-width:600px){
+ .lit-banner__link{gap:8px;min-height:60px;padding:8px 10px}
+ .lit-banner__label{font-size:9px}
+ .lit-banner__title{font-size:14px;letter-spacing:0}
+ .lit-banner__button{padding:7px 8px;gap:4px;font-size:10px;min-height:32px}
+ .lit-banner__arrow{font-size:17px}
+}
+@media(max-width:350px){.lit-banner__link{padding:8px}.lit-banner__title{font-size:13px}.lit-banner__button{padding:6px}}
+@media(prefers-reduced-motion:reduce){.lit-banner__link::before,.lit-banner__link::after,.lit-banner__arrow{animation:none}}
+@media print{.lit-banner__link::before,.lit-banner__link::after,.lit-banner__arrow{animation:none}.lit-banner__link{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
